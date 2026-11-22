@@ -23,7 +23,7 @@
     {
       "binding": "DB",
       "database_name": "whimsymaya-db",
-      "database_id": "REPLACE_WITH_YOUR_D1_DATABASE_ID",
+      "database_id": "a8f83d50-5420-44c1-95a9-468f6f7b8041",
       "migrations_dir": "migrations"
     }
   ],
