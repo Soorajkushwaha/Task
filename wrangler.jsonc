@@ -1,0 +1,45 @@
+{
+  // WhimsyMaya — Cloudflare Workers + Static Assets + D1 + R2 Configuration
+  "$schema": "node_modules/wrangler/config-schema.json",
+  "name": "whimsymaya",
+  "main": "worker/index.ts",
+  "compatibility_date": "2025-03-01",
+  "compatibility_flags": ["nodejs_compat"],
+  "observability": {
+    "enabled": true
+  },
+
+  // Cloudflare Workers Static Assets with React SPA fallback & Worker API routing
+  "assets": {
+    "directory": "./dist",
+    "binding": "ASSETS",
+    "not_found_handling": "single-page-application",
+    "run_worker_first": ["/api/*"]
+  },
+
+  // Cloudflare D1 (SQLite) Primary Database Binding
+  // Replace database_id with the UUID output from: npx wrangler d1 create whimsymaya-db
+  "d1_databases": [
+    {
+      "binding": "DB",
+      "database_name": "whimsymaya-db",
+      "database_id": "REPLACE_WITH_YOUR_D1_DATABASE_ID",
+      "migrations_dir": "migrations"
+    }
+  ],
+
+  // Cloudflare R2 Object Storage Binding for File Attachments
+  // Optional until created via: npx wrangler r2 bucket create whimsymaya-files
+  "r2_buckets": [
+    {
+      "binding": "FILES",
+      "bucket_name": "whimsymaya-files"
+    }
+  ],
+
+  // Public non-sensitive environment variables (Store secrets via `npx wrangler secret put`)
+  "vars": {
+    "APP_NAME": "WhimsyMaya",
+    "ENVIRONMENT": "production"
+  }
+}

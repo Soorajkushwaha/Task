@@ -1,0 +1,6 @@
+{
+  "name": "WhimsyMaya",
+  "description": "Plan. Record. Analyse. Improve. A professional work-management, planner, daily work journal, analyst desk, and team productivity platform.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
